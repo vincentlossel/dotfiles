@@ -1,0 +1,66 @@
+# Taps
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+
+# Brews
+brew "yabai"
+brew "skhd"
+
+brew "neovim"
+brew "tmux"
+
+brew "htop"
+brew "bat"
+brew "exa"
+brew "tree"
+brew "watch"
+brew "chezmoi"
+brew "lazygit"
+brew "neofetch"
+brew "gnupg"
+brew "exiftool"
+
+brew "go"
+brew "lua"
+brew "node"
+brew "python@3.10"
+brew "r"
+brew "rust"
+
+brew "git"
+brew "yarn"
+
+brew "graphviz"
+
+brew "jq"
+brew "gcc"
+brew "cmake"
+
+# Casks
+cask "obsidian"
+cask "cryptomator"
+cask "cyberduck"
+cask "firefox"
+cask "little-snitch"
+cask "netnewswire"
+cask "spotify"
+cask "1password"
+cask "sublime-text"
+cask "insomnia"
+cask "stats"
+cask "appcleaner"
+cask "libreoffice"
+cask "onyx"
+# cask "supicious-package"
+# cask "apparency"
+cask "signal"
+cask "protonvpn"
+cask "protonmail-bridge"
+
+# MAS
+
+
+# Fonts
+
