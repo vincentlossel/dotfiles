@@ -32,6 +32,7 @@ vim.opt.smartcase = true
 -- Appearance
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
+vim.opt.cursorline = true
 
 -- Windows
 vim.opt.splitright = true
