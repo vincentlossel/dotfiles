@@ -27,7 +27,6 @@ brew "lua"
 brew "node"
 brew "python@3.10"
 brew "r"
-brew "rust"
 
 brew "git"
 brew "yarn"
