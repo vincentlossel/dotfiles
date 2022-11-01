@@ -1,0 +1,17 @@
+# Vim & Emacs
+*~
+.*.swp
+
+# macOS 
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# IDEs
+.vscode
+.idea
+
+# Secrets
+.env
+env
