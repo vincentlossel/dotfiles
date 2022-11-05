@@ -1,12 +1,16 @@
-# Vim & Emacs
+# Vim
 *~
 .*.swp
 
-# macOS 
+# macOS
 .DS_Store
 
 # Windows
 Thumbs.db
+
+# Linux
+.Trash-*
+.directory
 
 # IDEs
 .vscode
@@ -15,3 +19,11 @@ Thumbs.db
 # Secrets
 .env
 env
+
+# Git
+.gitconfig
+
+# Other
+.uuid
+.extra
+.gnupg
