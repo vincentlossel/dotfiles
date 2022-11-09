@@ -4,8 +4,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/p10k-instant-prompt-${(%):-%n}.zsh
 fi
 
 # Environment variables
-if [ -f ~/.config/.exports ]; then
-    . ~/.config/.exports
+if [ -f ~/.config/zsh/exports.zsh ]; then
+    . ~/.config/zsh/exports.zsh
 fi
 
 # ZSH configuration
@@ -31,13 +31,13 @@ ZSH_COMPDUMP="${HOME}/.cache/zsh/zcompdump-${HOST}-${ZSH_VERSION}"
 plugins=(git)
 
 # Follow the PATH
-if [ -f ~/.config/.path ]; then
-    . ~/.config/.path
+if [ -f ~/.config/zsh/path.zsh ]; then
+    . ~/.config/zsh/path.zsh
 fi
 
 # Loading some stuff
-if [ -f ~/.config/.aliases ]; then
-    . ~/.config/.aliases
+if [ -f ~/.config/zsh/aliases.zsh ]; then
+    . ~/.config/zsh/aliases.zsh
 fi
 
 if [ -f ~/.config/homebrew/homebrew ]; then
