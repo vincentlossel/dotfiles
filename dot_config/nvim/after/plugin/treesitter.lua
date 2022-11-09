@@ -23,6 +23,13 @@ treesitter.setup({
         "vim",
         "dockerfile",
         "gitignore",
+        "python",
+        "rust",
+        "go",
+        "c",
+        "cpp",
+        "make"
     },
     auto_install = true,
 })
+

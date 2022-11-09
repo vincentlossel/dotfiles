@@ -27,3 +27,4 @@ end)
 nnoremap("<Leader>fh", function()
     require('telescope.builtin').help_tags()
 end)
+

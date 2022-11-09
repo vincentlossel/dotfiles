@@ -11,3 +11,4 @@ lualine.setup({
         theme = lualine_tokyonight
     }
 })
+

@@ -57,7 +57,8 @@ packer.startup(function()
     use("kyazdani42/nvim-web-devicons") -- Icons
 
     -- Code hightlights
-    use("nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"}) -- Highlighter
+    use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" }) -- Highlighter
     use("nvim-treesitter/playground") -- 
     use("romgrk/nvim-treesitter-context") -- Code context 
 end)
+
