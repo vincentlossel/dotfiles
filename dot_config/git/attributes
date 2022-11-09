@@ -1,0 +1,12 @@
+*               text=auto
+
+# Basic files
+.gitignore      text
+*.gitattributes text
+
+.gitattributes  export-ignore
+.gitignore      export-ignore
+
+# Markdown
+*.md            text diff=markdown
+
