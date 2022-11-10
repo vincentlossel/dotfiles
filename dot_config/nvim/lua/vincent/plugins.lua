@@ -7,6 +7,7 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function()
+
     -- Basics
     use("wbthomason/packer.nvim") -- Package manager
     use("sbdchd/neoformat") -- Code formatter
@@ -18,16 +19,18 @@ packer.startup(function()
     use("nvim-lua/plenary.nvim") -- Lua functions
     use("nvim-lua/popup.nvim") -- Popup API from Vim
     use("nvim-telescope/telescope.nvim") -- The good stuff
+    use("tpope/vim-surround") -- Mappings of surroundings
+    use("tpope/vim-sensible") -- Universal set of defaults 
+    use("MunifTanjim/nui.nvim") -- UI component library for nvim
+
+    -- Git
     use("tpope/vim-fugitive") -- Git wrapper
-    use("tpope/vim-surround") -- 
-    use("tpope/vim-sensible") -- 
-    use("MunifTanjim/nui.nvim") -- NUI
         
     -- LSP stuff
-    use("neovim/nvim-lspconfig") -- LSP config for Nvim
-    use("onsails/lspkind-nvim") -- 
-    use("nvim-lua/lsp_extensions.nvim") --
-    use("simrat39/symbols-outline.nvim") --
+    use("neovim/nvim-lspconfig") -- LSP config for nvim
+    use("onsails/lspkind-nvim") -- Adding pictograms to nvim built-in LSP
+    use("nvim-lua/lsp_extensions.nvim") -- 
+    use("simrat39/symbols-outline.nvim") -- Tree view for symbols in nvim
     use("glepnir/lspsaga.nvim") -- Performant UI for LSP
     use("windwp/nvim-autopairs") -- 
        
@@ -38,12 +41,12 @@ packer.startup(function()
     use("hrsh7th/nvim-cmp") -- Completion 
     use("hrsh7th/cmp-nvim-lsp") -- 
     use("hrsh7th/cmp-buffer") -- 
-    use("hrsh7th/cmp-path")
-
-    -- Snippets
-    use("L3MON4D3/LuaSnip") -- 
+    use("hrsh7th/cmp-path") -- 
     use("saadparwaiz1/cmp_luasnip") --
-    use("rafamadriz/friendly-snippets") --
+    
+    -- Snippets
+    use("L3MON4D3/LuaSnip") -- Snippet engine in Lua
+    use("rafamadriz/friendly-snippets") -- Collection of snippets
 
     -- Debugger
     use("mfussenegger/nvim-dap") -- DAP 
@@ -59,6 +62,7 @@ packer.startup(function()
     -- Code hightlights
     use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" }) -- Highlighter
     use("nvim-treesitter/playground") -- 
-    use("romgrk/nvim-treesitter-context") -- Code context 
+    use("romgrk/nvim-treesitter-context") -- Code context
+
 end)
 

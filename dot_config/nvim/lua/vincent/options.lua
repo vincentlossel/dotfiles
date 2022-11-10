@@ -1,12 +1,13 @@
 vim.cmd("autocmd!")
 
-vim.opt.scrolloff = 10
-vim.wo.number = true
+-- General
 vim.opt.shell = "zsh"
-vim.opt.updatetime = 50
 vim.opt.title = true
+
+-- Numbers
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.wo.number = true
 
 -- Encoding
 vim.scriptencoding = "utf-8"
@@ -33,6 +34,7 @@ vim.opt.smartcase = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
+vim.opt.scrolloff = 10
 
 -- Windows
 vim.opt.splitright = true
@@ -49,4 +51,7 @@ vim.opt.errorbells = false
 -- Providers (:checkhealth)
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
+
+-- Backups
+vim.opt.updatetime = 50
 
