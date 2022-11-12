@@ -34,16 +34,14 @@ yabai -m config window_gap                      16
 
 # Exclusions
 yabai -m rule --add title="(Copy|Bin|About This Mac|Info)" manage=off
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Calendar$" manage=off
-yabai -m rule --add app="^Mail$" manage=off
+yabai -m rule --add app="^(System Settings|System Preferences)$" manage=off
 yabai -m rule --add app="^[sS]tats$" manage=off
 yabai -m rule --add app="^Hammerspoon$" manage=off
-yabai -m rule --add app="^Spotify$" manage=off
-yabai -m rule --add app="^Podcasts$" manage=off
+yabai -m rule --add app="^(Music|Podcasts|Spotify)$" manage=off
+yabai -m rule --add app="^(Mail|Calendar|Photos)$" manage=off
 yabai -m rule --add app="^1Password$" manage=off
 yabai -m rule --add app="^Little Snitch$" manage=off
-yabai -m rule --add app="^(Facetime$" manage=off
+yabai -m rule --add app="^(Facetime|Messages|Signal|Discord|Slack)$" manage=off
 
 # End
 echo "yabai configuration loaded..."
