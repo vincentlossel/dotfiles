@@ -10,7 +10,10 @@ export GOPATH="${HOME}/.go"
 export GOBIN="${GOPATH}/bin"
 
 # Rust
-export CARGO="${HOME}/.cargo"
+export CARGO_HOME="${HOME}/.cargo"
+export CARGO="${CARGO_HOME}/bin"
+
+export RUSTUP_HOME="${HOME}/.rustup"
 
 # Python
 PYTHON_PATH="/usr/local/share/python"
