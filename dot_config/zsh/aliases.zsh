@@ -13,6 +13,7 @@ alias projects="cd ~/Developer/Projects/"
 alias docs="cd ~/Documents"
 alias desk="cd ~/Desktop"
 alias dl="cd ~/Downloads"
+alias config="cd ~/.config"
 
 alias g="git"
 
