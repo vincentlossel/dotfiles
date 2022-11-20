@@ -23,6 +23,9 @@ env
 # Git
 .gitconfig
 
+# Node
+node_modules
+
 # Other
 .uuid
 .extra
