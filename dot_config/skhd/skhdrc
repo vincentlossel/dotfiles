@@ -1,0 +1,24 @@
+# Shortcuts
+alt - return : open -n /Applications/kitty.app/Contents/MacOS/kitty
+alt + shift - return : open -n /Applications/Firefox.app/Contents/MacOS/firefox
+alt - r : brew services restart skhd
+alt - y : brew services restart yabai
+
+# Focus 
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# Swap
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
+
+# Move
+ctrl + alt - h : yabai -m window --warp west
+ctrl + alt - j : yabai -m window --warp south
+ctrl + alt - k : yabai -m window --warp north
+ctrl + alt - l : yabai -m window --warp east
+
