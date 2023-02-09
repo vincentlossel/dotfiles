@@ -1,5 +1,5 @@
 Host *
-    IdentityFile ~/.1password/agent.sock 
+    IdentityFile "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock" 
 
 Host github.com
     IdentityFile ~/.ssh/id_ed25519.pub
