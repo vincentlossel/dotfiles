@@ -1,0 +1,17 @@
+umask = 0o22
+encryption = "age"
+
+[edit]
+    command = "nvim"
+
+[diff]
+    command = "diff"
+    pager = "less"
+
+[merge]
+    command = "nvim"
+    args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+
+[age]
+    identity = "~/.age/key.txt"
+    recipient = "age1gea8a7h0r73d4nwfe2wvdnx0zrmsarl7tpv5z0ush488xgtdxdcqv9epcy"
