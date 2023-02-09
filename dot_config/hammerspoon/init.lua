@@ -1,2 +1,0 @@
--- Yabai
-yabai = require("yabai")
