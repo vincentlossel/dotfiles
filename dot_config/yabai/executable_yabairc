@@ -40,8 +40,11 @@ yabai -m rule --add app="^Hammerspoon$" manage=off
 yabai -m rule --add app="^(Music|Podcasts|Spotify)$" manage=off
 yabai -m rule --add app="^(Mail|Calendar|Photos)$" manage=off
 yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^JetBrains Toolbox$" manage=off
+yabai -m rule --add title="^JetBrains Toolbox$" manage=off
 yabai -m rule --add app="^Little Snitch$" manage=off
-yabai -m rule --add app="^(Facetime|Messages|Signal|Discord|Slack)$" manage=off
+yabai -m rule --add app="^Carbon Copy Cloner$" manage=off
+yabai -m rule --add app="^Cryptomator$" manage=off
+yabai -m rule --add app="^(ProtonVPN|Proton Bridge)$" manage=off
+yabai -m rule --add app="^(Facetime|Messages|Signal)$" manage=off
 
-# End
-echo "yabai configuration loaded..."
