@@ -1,0 +1,5 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "darwin" }}
+brew bundle install --no-lock --file=$HOME/.config/homebrew/Brewfile
+{{ end }}
