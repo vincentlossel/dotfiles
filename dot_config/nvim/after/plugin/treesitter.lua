@@ -1,14 +1,12 @@
-local status, treesitter = pcall(require, "nvim-treesitter.configs")
-if not status then
+local treesitter_ok, treesitter = pcall(require, "nvim-treesitter.configs")
+if not treesitter_ok then
+    print("ERROR: treesitter not loaded!")
     return
 end
 
 treesitter.setup({
-    highlight = {
-        enable = true,
-    },
-    indent = { enable = true },
-    autotag = { enable = true },
+    sync_install = false,
+    auto_install = true,
     ensure_installed = {
         "json",
         "javascript",
@@ -30,6 +28,28 @@ treesitter.setup({
         "cpp",
         "make"
     },
-    auto_install = true,
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+    },
+    indent = {
+        enable = true,
+        disable = { "yaml", },
+    },
+    autotag = {
+        enable = true,
+    },
+    autopairs = {
+        enable = true,
+    },
+    context_commentstring = {
+        enable = true,
+        enable_autocmd = true,
+    },
+    rainbow = {
+        enable = true,
+        extended_mode = true,
+        max_file_lines = nil,
+    },
 })
 

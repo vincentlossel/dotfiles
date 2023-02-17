@@ -1,5 +1,3 @@
-vim.cmd("autocmd!")
-
 -- General
 vim.opt.shell = "zsh"
 vim.opt.title = true
@@ -27,6 +25,7 @@ vim.opt.expandtab = true
 
 -- Search
 vim.opt.hlsearch = true
+vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
@@ -34,7 +33,13 @@ vim.opt.smartcase = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 8
+
+-- Text
+vim.opt.wrap = false
+
+-- Yanking
+vim.opt.clipboard = "unnamedplus"
 
 -- Windows
 vim.opt.splitright = true
@@ -51,7 +56,16 @@ vim.opt.errorbells = false
 -- Providers (:checkhealth)
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
+vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
 
 -- Backups
 vim.opt.updatetime = 50
+vim.opt.swapfile = false
+vim.opt.backup = false
 
+-- Netrw
+-- vim.g.loaded_netwr = 1
+-- vim.g.loaded_netrwPlugin = 1
+vim.g.netrw_banner = 0
+vim.g.netwr_browse_split = 0
+vim.g.netwr_winsize = 25

@@ -1,68 +1,125 @@
-local status, packer = pcall(require, "packer")
-if (not status) then
-    print("Packer is not installed")
+local packer_ok, packer = pcall(require, "packer")
+if not packer_ok then
+    print("ERROR: packer not found!")
     return
 end
 
+-- Reloading plugins.lua on change
+vim.cmd([[
+    augroup packer_user_config
+        autocmd!
+        autocmd BufWritePost plugins.lua source <afile> | PackerSync
+    augroup stop
+]])
+
+-- Packer
 vim.cmd [[packadd packer.nvim]]
 
-packer.startup(function()
+packer.init({
+    display = {
+        open_fn = function()
+            return require("packer.util").float({ border = "rounded" })
+        end
+    }
+})
+
+packer.startup(function(use)
 
     -- Basics
-    use("wbthomason/packer.nvim") -- Package manager
-    use("sbdchd/neoformat") -- Code formatter
-
-    -- Windows and panes
-    use("christoomey/vim-tmux-navigator") -- Easy navigation between nvim and tmux
+    use("wbthomason/packer.nvim")
+    use("tpope/vim-sensible")
 
     -- Tools
-    use("nvim-lua/plenary.nvim") -- Lua functions
-    use("nvim-lua/popup.nvim") -- Popup API from Vim
-    use("nvim-telescope/telescope.nvim") -- The good stuff
-    use("tpope/vim-surround") -- Mappings of surroundings
-    use("tpope/vim-sensible") -- Universal set of defaults 
-    use("MunifTanjim/nui.nvim") -- UI component library for nvim
+    use("tpope/vim-surround")
+    use("ThePrimeagen/harpoon")
+    use("mbbill/undotree")
+    use("preservim/tagbar")
+    use("numToStr/Comment.nvim")
+    -- use("github/copilot.vim")
+
+    -- Telescope
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+        }
+    }
+    use {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        run = "make"
+    }
+    use("nvim-telescope/telescope-dap.nvim")
 
     -- Git
-    use("tpope/vim-fugitive") -- Git wrapper
-        
-    -- LSP stuff
-    use("neovim/nvim-lspconfig") -- LSP config for nvim
-    use("onsails/lspkind-nvim") -- Adding pictograms to nvim built-in LSP
-    use("nvim-lua/lsp_extensions.nvim") -- 
-    use("simrat39/symbols-outline.nvim") -- Tree view for symbols in nvim
-    use("glepnir/lspsaga.nvim") -- Performant UI for LSP
-    use("windwp/nvim-autopairs") -- 
-       
-    -- Statusline
-    use("nvim-lualine/lualine.nvim") -- Status line 
+    use("tpope/vim-fugitive")
+    use("lewis6991/gitsigns.nvim")
 
-    -- Autocompletions
-    use("hrsh7th/nvim-cmp") -- Completion 
-    use("hrsh7th/cmp-nvim-lsp") -- 
-    use("hrsh7th/cmp-buffer") -- 
-    use("hrsh7th/cmp-path") -- 
-    use("saadparwaiz1/cmp_luasnip") --
-    
-    -- Snippets
-    use("L3MON4D3/LuaSnip") -- Snippet engine in Lua
-    use("rafamadriz/friendly-snippets") -- Collection of snippets
+    -- LSP stuff
+    use {
+        "VonHeikemen/lsp-zero.nvim",
+        requires = {
+            -- LSP Support
+            { "neovim/nvim-lspconfig" },
+            { "williamboman/mason.nvim" },
+            { "williamboman/mason-lspconfig.nvim" },
+
+            -- Autocompletion
+            { "hrsh7th/nvim-cmp" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-nvim-lua" },
+            { "saadparwaiz1/cmp_luasnip" },
+
+            -- Autopairs
+            { "windwp/nvim-autopairs" },
+
+            -- GREP
+            { "BurntSushi/ripgrep" },
+
+            -- Snippets
+            { "L3MON4D3/LuaSnip" },
+            { "rafamadriz/friendly-snippets" },
+
+            -- UI
+            { "onsails/lspkind-nvim" },
+        }
+    }
+
+    -- File explorer
+    use("kyazdani42/nvim-tree.lua")
+    use("kyazdani42/nvim-web-devicons")
+
+    -- Statusline
+    use("nvim-lualine/lualine.nvim")
+
+    -- Bufferline
+    use("akinsho/bufferline.nvim")
 
     -- Debugger
-    use("mfussenegger/nvim-dap") -- DAP 
-    use("rcarriga/nvim-dap-ui") -- UI for DAP
-    use("theHamsta/nvim-dap-virtual-text") -- Inline text for DAP
+    use("mfussenegger/nvim-dap")
+    use("rcarriga/nvim-dap-ui")
+    use("theHamsta/nvim-dap-virtual-text")
+    use("leoluz/nvim-dap-go")
+    use("mfussenegger/nvim-dap-python")
+
+    -- DB
+    -- use("tpope/vim-dadbod")
+    -- use("kristijanhusak/vim-dadbod-ui")
 
     -- Colorscheme
-    use("folke/tokyonight.nvim") -- TOKYOOOOOOO
-
-    -- Icons
-    use("kyazdani42/nvim-web-devicons") -- Icons
+    use("folke/tokyonight.nvim")
 
     -- Code hightlights
-    use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" }) -- Highlighter
-    use("nvim-treesitter/playground") -- 
-    use("romgrk/nvim-treesitter-context") -- Code context
+    use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+    use("nvim-treesitter/playground")
+    use("romgrk/nvim-treesitter-context")
+    use("folke/todo-comments.nvim")
+
+    -- Docstrings
+    use("danymat/neogen")
+
+    -- Dashboard
+    use("startup-nvim/startup.nvim")
 
 end)
-
