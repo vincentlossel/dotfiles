@@ -31,6 +31,7 @@ brew "node"
 brew "python@3.10"
 brew "python@3.11"
 brew "r"
+brew "lua"
 
 brew "git"
 brew "yarn"
@@ -41,10 +42,11 @@ brew "jq"
 brew "gcc"
 brew "cmake"
 
+brew "mas"
+
 # Casks
 cask "1password"
 cask "1password-cli"
-cask "anki"
 cask "appcleaner"
 cask "carbon-copy-cloner"
 cask "cryptomator"
@@ -52,24 +54,24 @@ cask "devtoys"
 cask "espanso"
 cask "firefox"
 cask "insomnia"
+cask "jetbrains-toolbox"
 cask "kitty"
 cask "little-snitch"
-cask "notion"
 cask "obs"
 cask "obsidian"
-cask "onyx"
 cask "protonvpn"
 cask "protonmail-bridge"
 cask "slack"
 cask "signal"
-cask "spotify"
 cask "stats"
+cask "table-plus"
+cask "thunderbird"
 cask "visual-studio-code"
 cask "vlc"
-
-# MAS
-
 
 # Fonts
 cask "font-jetbrains-mono-nerd-font"
 cask "font-meslo-lg-nerd-font"
+
+# MAS
+mas "Xcode", id: 497799835
