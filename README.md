@@ -1,5 +1,5 @@
 # dotfiles
-Personal dotfiles, managed by [chezmoi](https://chezmoi.io)
+Personal dotfiles.
 
 ## Requirements
 - zsh
