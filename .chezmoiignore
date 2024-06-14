@@ -1,0 +1,9 @@
+*.md
+
+.DS_Store
+
+backups/
+backups/**
+
+node_modules/
+package.json

@@ -1,0 +1,75 @@
+# Taps
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+
+# Brews / Formulae
+brew "neovim"
+brew "tmux"
+
+brew "htop"
+brew "bat"
+brew "exa"
+brew "tree"
+brew "watch"
+brew "lazygit"
+brew "neofetch"
+brew "gnupg"
+brew "exiftool"
+brew "virtualenv"
+brew "ripgrep"
+brew "uv"
+
+brew "go"
+brew "lua"
+brew "node"
+brew "python@3.11"
+brew "python@3.12"
+brew "r"
+brew "lua"
+
+brew "git"
+brew "yarn"
+brew "pnpm"
+
+brew "graphviz"
+
+brew "jq"
+brew "gcc"
+brew "cmake"
+
+brew "mas"
+
+# Casks
+cask "1password"
+cask "1password-cli"
+cask "appcleaner"
+cask "arc"
+cask "carbon-copy-cloner"
+cask "cryptomator"
+cask "devtoys"
+cask "firefox"
+cask "insomnia"
+cask "iterm2"
+cask "jetbrains-toolbox"
+cask "little-snitch"
+cask "obs"
+cask "obsidian"
+cask "protonvpn"
+cask "protonmail-bridge"
+cask "slack"
+cask "signal"
+cask "stats"
+cask "table-plus"
+cask "vlc"
+cask "zed"
+
+# Fonts
+cask "font-jetbrains-mono-nerd-font"
+cask "font-meslo-lg-nerd-font"
+
+# Mac App Store (MAS)
+mas "Xcode", id: 497799835
+mas "Things 3", id: 904280696
