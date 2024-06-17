@@ -6,8 +6,7 @@ HOMEBREW_SBIN="/opt/homebrew/sbin"
 HOMEBREW_LIB="/opt/homebrew/lib"
 
 # GoLang
-export GOPATH="${HOME}/.go"
-export GOBIN="${GOPATH}/bin"
+export GOBIN="${HOME}/.go/bin"
 
 # Rust
 export CARGO_HOME="${HOME}/.cargo"
