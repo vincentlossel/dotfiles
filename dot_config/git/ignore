@@ -1,0 +1,31 @@
+# Vim
+*~
+.*.swp
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Linux
+.Trash-*
+.directory
+
+# IDEs
+.vscode/
+.idea/
+
+# Secrets
+.env
+env
+*.p8
+*.pem
+
+# Node
+node_modules/
+
+# Other
+.uuid
+.extra
+.gnupg

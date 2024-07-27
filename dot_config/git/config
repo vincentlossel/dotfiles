@@ -1,0 +1,87 @@
+[user]
+    name = Vincent Lossel
+    email = hello@vincentlossel.com
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJFJrTySWq/sG5lLrr83yYHuMIZQS34FQqtevy++b0jO
+
+[init]
+    defaultbranch = main
+
+[core]
+    editor = nvim
+    trustctime = false
+    excludefiles = ~/.config/git/ignore
+    attributesfile = ~/.config/git/attributes
+
+[web]
+    browser = firefox
+
+[commit]
+    gpgsign = true
+
+[gpg]
+    format = ssh
+
+[gpg "ssh"]
+    program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+
+[push]
+    default = simple
+
+[pull]
+    rebase = true
+
+[color]
+    ui = auto
+
+[color "branch"]
+    current = yellow bold
+    local = green bold
+    remote = cyan bold
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red bold
+
+[alias]
+    # Logs & Graphs
+    l = log --pretty=oneline -n 20 --graph --abbrev-commit
+    lg = log --color --decorate --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an (%G?)>%Creset" --abbrev-commit
+    graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20%(%ce)%n%x20%s%n"
+
+    # Status
+    s = status -s
+
+    # Clone
+    c = clone --recursive
+
+    # Commit
+    ca = !git add -A && git commit -av
+    amend = commit --amend --resue-message=HEAD
+
+    # Contributors
+    contributors = shortlog --summary --numbered
+
+    # Verbose about tags, branches and remotes
+    tags = tag -l
+    branches = branch -a
+    remotes = remote -v
+
+    # Code review
+    change = codereview change
+    gofmt = codereview gofmt
+    mail = codereview mail
+    pending = codereview pending
+    submit = codereview submit
+    sync = codereview sync

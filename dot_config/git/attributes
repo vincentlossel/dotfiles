@@ -1,0 +1,12 @@
+# Auto
+*                   text=auto
+
+# Files to normalize
+*.md                text diff=markdown
+.gitignore          text
+.gitignore          export-ignore
+*.gitattributes     text
+.gitattributes      export-ignore
+*.gitattributes     linguist-language=gitattributes
+*.gitattributes     linguist-detectable=true
+*.gitattributes     linguist-documentation=false
