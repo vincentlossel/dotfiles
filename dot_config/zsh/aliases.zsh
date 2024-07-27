@@ -13,11 +13,8 @@ alias nano="nvim"
 # Shortcuts
 alias dev="cd ~/Developer"
 alias projects="cd ~/Developer/Projects/"
-alias web="cd ~/Developer/Websites/"
-alias apps="cd ~/Developer/Applications/"
 alias docs="cd ~/Documents"
 alias notes="cd ~/Documents/Notes/"
-alias comp="cd ~/Documents/Notes/NewCompendium/"
 alias desk="cd ~/Desktop"
 alias dl="cd ~/Downloads"
 alias config="cd ~/.config"
@@ -27,6 +24,9 @@ alias lg="lazygit"
 
 # unalias l
 alias l="exa -la"
+
+# yazi
+alias yz="yazi"
 
 # Cleanup
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"

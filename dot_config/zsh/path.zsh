@@ -26,8 +26,11 @@ export PNPM_HOME="${HOME}/Library/pnpm"
 # Java
 export JAVA_HOME="/opt/homebrew/opt/openjdk"
 
+# Ruby
+export RUBY_HOME="/opt/homebrew/opt/ruby/bin"
+
 # Swift
 export SWIFT_HOME="/Library/Developer/Toolchains/swift-latest.xctoolchain"
 
 # Update the PATH
-export PATH=$HOMEBREW_BIN:$HOMEBREW_SBIN:$GOBIN:$CARGO:$PNPM_HOME:$ANDROID_HOME:$JAVA_HOME:$SWIFT_HOME:$PATH
+export PATH=$HOMEBREW_BIN:$HOMEBREW_SBIN:$GOBIN:$CARGO:$PNPM_HOME:$ANDROID_HOME:$JAVA_HOME:$RUBY_HOME:$SWIFT_HOME:$PATH
