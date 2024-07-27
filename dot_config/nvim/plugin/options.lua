@@ -1,5 +1,8 @@
 -- [[ Options ]]
 
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+
 -- Make line numbers default
 vim.opt.number = true
 vim.opt.relativenumber = false
@@ -47,3 +50,16 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor
 vim.opt.scrolloff = 10
+
+--
+vim.opt.inccommand = "split"
+
+--
+vim.opt.shada = { "'10", "<0", "s10", "h" }
+
+--
+vim.opt.formatoptions:remove "o"
+
+--
+vim.opt.wrap = true
+vim.opt.linebreak = true
