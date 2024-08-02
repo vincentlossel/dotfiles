@@ -5,8 +5,16 @@
 
 backups/
 backups/**
+**/backups/*
 
+**/node_modules/*
+**/node_modules/
+**/.yarn/*
 node_modules/
 package.json
 
-LICENSE
+plugins/
+plugins/**
+**/plugins/*
+**/plugins
+
