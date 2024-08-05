@@ -9,6 +9,12 @@ return {
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = false },
+		config = function()
+			local comments = require "todo-comments"
+			comments.setup {
+				signs = true,
+				sign_priority = 8,
+			}
+		end,
 	},
 }

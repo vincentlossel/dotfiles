@@ -7,6 +7,11 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 			{ "MunifTanjim/nui.nvim" },
 		},
-		opts = {},
+		config = function()
+			local leetcode = require "leetcode"
+			leetcode.setup {
+				lang = "go",
+			}
+		end,
 	},
 }

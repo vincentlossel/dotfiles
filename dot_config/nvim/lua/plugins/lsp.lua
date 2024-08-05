@@ -17,7 +17,7 @@ return {
 			local mason_tool_installer = require "mason-tool-installer"
 			local mason_lspconfig = require "mason-lspconfig"
 
-			-- Create new capabilities to talk with CMP
+			-- Create new capabilities to talk with CMPlsp
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
@@ -93,6 +93,8 @@ return {
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						lspconfig[server_name].setup(server)
 					end,
+					-- Disable rust_analyzer to use rustacean
+					["rust_analyzer"] = function() end,
 				},
 			}
 
