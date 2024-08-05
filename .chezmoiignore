@@ -13,8 +13,6 @@ backups/**
 node_modules/
 package.json
 
-plugins/
-plugins/**
-**/plugins/*
-**/plugins
+tmux/plugins/*
+tmux/plugins
 
