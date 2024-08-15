@@ -23,7 +23,9 @@ SAVEHIST=1000
 
 ZSH_COMPDUMP="${HOME}/.cache/zsh/zcompdump-${HOST}-${ZSH_VERSION}"
 
-plugins=(git)
+# Plugins
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
 
 # Follow the PATH
 if [ -f ~/.config/zsh/path.zsh ]; then
