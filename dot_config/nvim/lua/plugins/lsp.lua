@@ -61,6 +61,8 @@ return {
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua",
+				"codespell",
+				"tailwindcss-language-server",
 			})
 
 			local servers_to_install = vim.tbl_filter(function(key)
@@ -93,7 +95,7 @@ return {
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						lspconfig[server_name].setup(server)
 					end,
-					-- Disable rust_analyzer to use rustacean
+					-- Disable rust_analyzer to use `rustacean`
 					["rust_analyzer"] = function() end,
 				},
 			}

@@ -5,7 +5,8 @@ return {
 		name = "catppuccin",
 		lazy = false,
 		config = function()
-			require("catppuccin").setup {
+			local catppuccin = require "catppuccin"
+			catppuccin.setup {
 				integrations = {
 					cmp = true,
 					gitsigns = true,
