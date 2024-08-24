@@ -54,12 +54,21 @@ vim.opt.scrolloff = 10
 --
 vim.opt.inccommand = "split"
 
---
+-- ShaDa
 vim.opt.shada = { "'10", "<0", "s10", "h" }
 
---
+-- Formatting options
 vim.opt.formatoptions:remove "o"
 
---
+-- Text wrapping
 vim.opt.wrap = true
 vim.opt.linebreak = true
+
+-- Folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldcolumn = "0"
+vim.opt.foldtext = ""
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 6
+vim.opt.foldnestmax = 4
