@@ -15,4 +15,6 @@
 -- 			end,
 -- 		})
 -- 	end,
--- })
+
+-- vim.bo.comments = "//,<--"
+vim.opt_local.commentstring = "//%s"
