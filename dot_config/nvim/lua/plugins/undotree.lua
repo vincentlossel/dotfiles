@@ -1,4 +1,5 @@
 return {
+	-- Undotree
 	{
 		"jiaoshijie/undotree",
 		dependencies = {

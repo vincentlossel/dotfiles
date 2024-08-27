@@ -3,10 +3,11 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
-			"rcarriga/nvim-dap-ui",
-			"theHamsta/nvim-dap-virtual-text",
-			"nvim-neotest/nvim-nio",
-			"leoluz/nvim-dap-go",
+			{ "rcarriga/nvim-dap-ui" },
+			{ "theHamsta/nvim-dap-virtual-text" },
+			{ "nvim-neotest/nvim-nio" },
+			-- Go DAP
+			{ "leoluz/nvim-dap-go" },
 		},
 		config = function()
 			local dap = require "dap"
@@ -43,6 +44,7 @@ return {
 				})
 			end)
 
+			-- Keymaps
 			vim.keymap.set("n", "<F1>", dap.continue)
 			vim.keymap.set("n", "<F2>", dap.step_into)
 			vim.keymap.set("n", "<F3>", dap.step_over)

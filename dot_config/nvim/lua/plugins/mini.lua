@@ -37,6 +37,9 @@ return {
 					width_preview = 25,
 				},
 			}
+
+			-- Keymaps
+			vim.keymap.set("n", "<Leader>E", "<Cmd>lua MiniFiles.open()<CR>", { desc = "" })
 		end,
 	},
 }

@@ -5,7 +5,8 @@ return {
 		lazy = true,
 		ft = "markdown",
 		config = function()
-			require("obsidian").setup {
+			local obsidian = require "obsidian"
+			obsidian.setup {
 				workspaces = {
 					{
 						name = "Notes",

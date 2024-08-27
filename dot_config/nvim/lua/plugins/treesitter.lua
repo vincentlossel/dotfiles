@@ -4,7 +4,8 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		config = function()
-			require("nvim-treesitter.configs").setup {
+			local treesitter_configs = require "nvim-treesitter.configs"
+			treesitter_configs.setup {
 				ensure_installed = {
 					"bash",
 					"c",

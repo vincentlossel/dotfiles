@@ -18,6 +18,13 @@ return {
 						indentscope_color = "",
 					},
 				},
+				color_overrides = {
+					mocha = {
+						base = "#11111a",
+						mantle = "#11111a",
+						crust = "#11111a",
+					},
+				},
 			}
 
 			-- Highlights

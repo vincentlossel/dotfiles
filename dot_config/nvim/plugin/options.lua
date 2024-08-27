@@ -5,7 +5,7 @@ vim.g.loaded_perl_provider = 0
 
 -- Make line numbers default
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 
 -- Enable mouse mode
 vim.opt.mouse = "a"
@@ -72,3 +72,7 @@ vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 6
 vim.opt.foldnestmax = 4
+
+-- Writing
+vim.opt.spell = false
+vim.opt.dictionary = "spell"

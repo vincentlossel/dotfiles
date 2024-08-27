@@ -2,7 +2,7 @@ return {
 	-- Better quickfix list
 	{
 		"kevinhwang91/nvim-bqf",
-		deps = {
+		dependencies = {
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
 		config = function()
