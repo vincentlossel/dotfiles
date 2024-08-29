@@ -19,6 +19,10 @@ return {
 					return vim.fn.executable "make" == 1
 				end,
 			},
+			-- Telescope Undo
+			{
+				"debugloop/telescope-undo.nvim",
+			},
 		},
 		config = function()
 			local telescope = require "telescope"
@@ -49,12 +53,14 @@ return {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown(),
 					},
+					undo = {},
 				},
 			}
 
 			-- Enable Telescope extensions
 			pcall(telescope.load_extension, "fzf")
 			pcall(telescope.load_extension, "ui-select")
+			pcall(telescope.load_extension, "undo")
 
 			-- Keymaps
 			vim.keymap.set("n", "<Leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })

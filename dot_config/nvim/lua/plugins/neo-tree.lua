@@ -10,7 +10,10 @@ return {
 		config = function()
 			local neotree = require "neo-tree"
 			neotree.setup {
+				enable_git_status = true,
+				enable_diagnostics = true,
 				filesystem = {
+					hijack_netrw_behavior = "disabled",
 					hide_dotfiles = true,
 					hide_hidden = true,
 					hide_by_name = {
@@ -33,6 +36,9 @@ return {
 					leave_dirs_open = true,
 				},
 			}
+
+			-- Keymaps
+			vim.keymap.set("n", "_", "<Cmd>Neotree toggle<CR>", { desc = "Toggle Neotree" })
 		end,
 	},
 }
