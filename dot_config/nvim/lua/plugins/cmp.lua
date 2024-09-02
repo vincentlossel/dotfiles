@@ -2,28 +2,36 @@ return {
 	-- Autocompletion
 	{
 		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
+			-- Completions
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 			-- Snippets
 			{ "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
-			-- Snippets
 			{ "saadparwaiz1/cmp_luasnip" },
-			-- LSP completion
-			{ "hrsh7th/cmp-nvim-lsp" },
-			-- Path completion
-			{ "hrsh7th/cmp-path" },
-			-- Buffer completion
-			{ "hrsh7th/cmp-buffer" },
+			{ "rafamadriz/friendly-snippets" },
 			-- Icons in LSP suggestions
 			{ "onsails/lspkind.nvim" },
+			-- Autopairs
+			{ "windwp/nvim-ts-autotag" },
+			{ "windwp/nvim-autopairs" },
 		},
 		config = function()
 			local cmp = require "cmp"
+			local cmp_autopairs = require "nvim-autopairs"
 			local luasnip = require "luasnip"
 			local lspkind = require "lspkind"
 
+			cmp_autopairs.setup {}
 			luasnip.config.setup {}
 
+			-- Integrate nvim-autopairs with cmp
+			cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
+
+			-- CMP Setup
 			cmp.setup {
 				snippet = {
 					expand = function(args)
@@ -35,11 +43,18 @@ return {
 				},
 				formatting = {
 					-- LSPKind
+					expandable_indicator = true,
 					format = lspkind.cmp_format {
 						mode = "symbol_text",
 						maxwidth = 50,
 						ellipsis_char = "...",
 						show_labelDetails = true,
+						menu = {
+							nvim_lsp = "[LSP]",
+							buffer = "[Buffer]",
+							path = "[PATH]",
+							luasnip = "[LuaSnip]",
+						},
 					},
 				},
 				mapping = cmp.mapping.preset.insert {
@@ -76,20 +91,16 @@ return {
 					end, { "i", "s" }),
 				},
 				sources = {
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "path" },
-					{ name = "buffer" },
+					{ name = "nvim_lsp", group_index = 1 },
+					{ name = "buffer", max_item_count = 5, group_index = 2 },
+					{ name = "path", max_item_count = 3, groupd_index = 3 },
+					{ name = "luasnip", max_item_count = 3, group_index = 5 },
+					{ name = "nvim-lsp-signature-help" },
+				},
+				experimental = {
+					ghost_text = true,
 				},
 			}
-
-			-- SQL
-			cmp.setup.filetype({ "sql" }, {
-				sources = {
-					{ name = "vim-dadbod-completion" },
-					{ name = "buffer" },
-				},
-			})
 		end,
 	},
 }

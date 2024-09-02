@@ -1,24 +1,39 @@
 -- [[ Options ]]
 
+-- Disable some providers
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 
--- Make line numbers default
+-- Enable 24-bit colors
+vim.opt.termguicolors = true
+
+-- Enable relative line number
 vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Enable mouse mode
 vim.opt.mouse = "a"
 
--- The mode is already in the statusline
+-- Disable showing the mode below the statusline
 vim.opt.showmode = false
 
 -- Sync clipboard
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamed,unnamedplus"
+
+-- Auto-indenting
+vim.opt.smartindent = true
+vim.opt.shiftwidth = 4
+
+-- Complete options
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Enable break indent
 vim.opt.breakindent = true
+
+-- Tabs
+vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
+vim.opt.expandtab = true
 
 -- Save undo history
 vim.opt.undofile = true
@@ -45,14 +60,11 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 -- Preview substitutions live
 vim.opt.inccommand = "split"
 
--- Show which line your cursor is on
+-- Enable cursor line
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor
 vim.opt.scrolloff = 10
-
---
-vim.opt.inccommand = "split"
 
 -- ShaDa
 vim.opt.shada = { "'10", "<0", "s10", "h" }
@@ -61,18 +73,21 @@ vim.opt.shada = { "'10", "<0", "s10", "h" }
 vim.opt.formatoptions:remove "o"
 
 -- Text wrapping
-vim.opt.wrap = true
-vim.opt.linebreak = true
+vim.opt.wrap = false
+vim.opt.linebreak = false
 
--- Folding
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- Column line
+-- vim.opt.colorcolumn = "80"
+
+-- Fold settings
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldnestmax = 5
 vim.opt.foldcolumn = "0"
 vim.opt.foldtext = ""
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 6
-vim.opt.foldnestmax = 4
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
--- Writing
+-- Spell checkin
 vim.opt.spell = false
 vim.opt.dictionary = "spell"

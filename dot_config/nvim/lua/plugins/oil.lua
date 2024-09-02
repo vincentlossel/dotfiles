@@ -28,7 +28,7 @@ return {
 						return vim.startswith(name, ".")
 					end,
 					is_always_hidden = function(name, _)
-						return name == ".." or name == ".git" or name == ".DS_Store"
+						return name == ".." or name == ".git" or name == ".DS_Store" or string.match(name, "_templ.go")
 					end,
 				},
 				win_options = {

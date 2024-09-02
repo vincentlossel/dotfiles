@@ -2,6 +2,7 @@ return {
 	-- Outline.nvim
 	{
 		"hedyhli/outline.nvim",
+		lazy = true,
 		config = function()
 			local outline = require "outline"
 			outline.setup {

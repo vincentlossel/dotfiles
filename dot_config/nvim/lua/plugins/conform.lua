@@ -2,9 +2,11 @@ return {
 	-- Autoformat
 	{
 		"stevearc/conform.nvim",
+		event = { "BufWritePre" },
 		config = function()
 			local conform = require "conform"
 
+			-- If we have Ruff, we use it
 			local getPythonFormatter = function(bufnr)
 				if conform.get_formatter_info("ruff_format", bufnr).available then
 					return { "ruff_format" }
@@ -13,21 +15,28 @@ return {
 				end
 			end
 
+			-- Conform
 			conform.setup {
 				notify_on_error = true,
+				default_format_opts = {
+					async = true,
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				},
 				formatters_by_ft = {
-					javascript = { { "prettier" } },
-					javascriptreact = { { "prettier" } },
-					typescript = { { "prettier" } },
-					typescriptreact = { { "prettier" } },
+					javascript = { "biome", "prettierd", "prettier" },
+					javascriptreact = { "biome", "prettierd", "prettier" },
+					typescript = { "biome", "prettierd", "prettier" },
+					typescriptreact = { "biome", "prettierd", "prettier" },
+					svelte = { "prettierd", "prettier" },
 					python = getPythonFormatter(),
 					json = { "jq" },
 					rust = { "rustfmt" },
 					shell = { "shfmt" },
-					templ = { "goimports", "templ", "html" },
+					templ = { "templ" },
 					lua = { "stylua" },
 					sql = { "sqlfmt" },
-					go = { "goimports", "gofmt" },
+					go = { "gofmt" },
 					c = { "clang-format" },
 					["*"] = { "codespell" },
 					["_"] = { "trim_whitespace" },

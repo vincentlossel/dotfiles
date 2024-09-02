@@ -5,42 +5,51 @@ return {
 		dependencies = {
 			-- Extensions manager
 			{ "williamboman/mason.nvim" },
-			-- Mason and LSPConfig
 			{ "williamboman/mason-lspconfig.nvim" },
 			{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
+			-- UI
 			{ "j-hui/fidget.nvim", opts = {} },
+			-- Rustacean
+			{ "mrcjkb/rustaceanvim", lazy = false },
 		},
 		config = function()
-			-- LSPConfig
 			local lspconfig = require "lspconfig"
 			local mason = require "mason"
-			local mason_tool_installer = require "mason-tool-installer"
 			local mason_lspconfig = require "mason-lspconfig"
+			local mason_tool_installer = require "mason-tool-installer"
 
-			-- Create new capabilities to talk with CMPlsp
+			-- Capabilities
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-			-- Swift > SourceKit
-			lspconfig.sourcekit.setup {
-				sourcekit = {
-					capabilities = {
-						workspace = {
-							didChangeWatchedFiles = {
-								dynamicRegistration = true,
-							},
-						},
-					},
-				},
+			-- Inlay hints
+			local tsserver_inlay_hints = {
+				includeInlayEnumMemberValueHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
 			}
 
+			-- Servers
 			local servers = {
 				bashls = true,
 				clangd = true,
 				gopls = true,
 				pyright = true,
-				-- TODO: Disable formatting for `tsserver` and use `biome` instead
-				tsserver = true,
+				tsserver = {
+					settings = {
+						typescript = {
+							inlayHints = tsserver_inlay_hints,
+						},
+						javascript = {
+							inlayHints = tsserver_inlay_hints,
+						},
+					},
+				},
 				biome = true,
 				lua_ls = {
 					settings = {
@@ -48,6 +57,7 @@ return {
 							diagnostics = {
 								globals = { "vim" },
 							},
+							telemetry = { enabled = false },
 						},
 					},
 				},
@@ -55,6 +65,12 @@ return {
 				yamlls = true,
 				cssls = true,
 				astro = true,
+			}
+
+			-- Formatters
+			local formatters = {
+				prettierd = true,
+				stylelua = true,
 			}
 
 			-- Listing servers
@@ -95,7 +111,8 @@ return {
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						lspconfig[server_name].setup(server)
 					end,
-					-- Disable rust_analyzer to use `rustacean`
+
+					-- Disable rust_analyzer to use `rustacean` instead
 					["rust_analyzer"] = function() end,
 				},
 			}
@@ -111,35 +128,16 @@ return {
 
 					local builtin = require "telescope.builtin"
 
-					-- Jump to the definition of the word under your cursor.
+					-- Keymaps
 					map("gd", builtin.lsp_definitions, "[G]oto [D]definition")
-
-					-- Find references for the word under your cursor.
 					map("gr", builtin.lsp_references, "[G]oto [R]eferences")
-
-					-- Jump to the implementation of the word under your cursor.
 					map("gI", builtin.lsp_implementations, "[G]oto [I]mplementation")
-
-					-- Jump to the type of the word under your cursor.
-					map("<leader>D", builtin.lsp_type_definitions, "Type [D]definition")
-
-					-- Fuzzy find all the symbols in your current document.
-					map("<leader>ds", builtin.lsp_document_symbols, "[D]ocument [S]symbols")
-
-					-- Fuzzy find all the symbols in your current workspace
-					map("<leader>ws", builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]symbols")
-
-					-- Rename the variable under your cursor
-					map("<leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
-
-					-- Execute a code action, usually your cursor needs to be on top of an error
-					-- or a suggestion from your LSP for this to activate.
-					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-
-					-- Opens a popup that displays documentation about the word under your cursor
+					map("<Leader>D", builtin.lsp_type_definitions, "Type [D]definition")
+					map("<Leader>ds", builtin.lsp_document_symbols, "[D]ocument [S]symbols")
+					map("<Leader>ws", builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]symbols")
+					map("<Leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
+					map("<Leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 					map("K", vim.lsp.buf.hover, "Hover Documentation")
-
-					-- Go to Declaration
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 				end,
 			})
@@ -155,9 +153,9 @@ return {
 
 			vim.diagnostic.config {
 				-- Default diagnostics
-				virtual_text = false,
+				virtual_text = true,
 				-- LSPLines
-				virtual_lines = true,
+				virtual_lines = false,
 			}
 		end,
 	},

@@ -26,3 +26,4 @@ vim.keymap.set("n", "sv", "<Cmd>vsplit<CR>", { desc = "Vertical split" })
 vim.keymap.set("n", "sh", "<Cmd>split<CR>", { desc = "Horizontal split" })
 
 -- TODO: Inlay hints
+-- vim.keymap.set("n", "", "", { desc = "Toggle inlay hints" })

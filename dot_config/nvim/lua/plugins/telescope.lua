@@ -20,9 +20,9 @@ return {
 				end,
 			},
 			-- Telescope Undo
-			{
-				"debugloop/telescope-undo.nvim",
-			},
+			{ "debugloop/telescope-undo.nvim" },
+			-- Telescope Frecency
+			{ "nvim-telescope/telescope-frecency.nvim" },
 		},
 		config = function()
 			local telescope = require "telescope"
@@ -61,6 +61,7 @@ return {
 			pcall(telescope.load_extension, "fzf")
 			pcall(telescope.load_extension, "ui-select")
 			pcall(telescope.load_extension, "undo")
+			pcall(telescope.load_extension, "frecency")
 
 			-- Keymaps
 			vim.keymap.set("n", "<Leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
@@ -73,7 +74,8 @@ return {
 			vim.keymap.set("n", "<Leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 			vim.keymap.set("n", "<Leader>s.", builtin.oldfiles, { desc = "[S]earch Recent Files (\".\" for repeat)" })
 			vim.keymap.set("n", "<Leader>sb", builtin.buffers, { desc = "[S]earch existing [B]buffers" })
-			vim.keymap.set("n", "<Leader>td", "<Cmd>TodoTelescope<CR>", { desc = "Search Todo" })
+			vim.keymap.set("n", "<Leader>su", "<Cmd>Telescope undo<CR>", { desc = "[S]earch [U]ndo" })
+			vim.keymap.set("n", "<Leader>st", "<Cmd>TodoTelescope<CR>", { desc = "[S]earch [T]odo" })
 
 			-- Current Buffer Fuzzy Search
 			vim.keymap.set("n", "<Leader>/", function()
