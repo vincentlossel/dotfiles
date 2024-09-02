@@ -1,0 +1,66 @@
+{
+  "features": {
+    "inline_completion_provider": "none",
+    "copilot": false
+  },
+  "theme": "Andromeda",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_features": {
+    "calt": false
+  },
+  "autosave": "on_focus_change",
+  "vim_mode": true,
+  "show_copilot_suggestions": false,
+  "cursor_blink": false,
+  "relative_number_lines": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "vertical_scroll_margin": 0,
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_multiline_find": true
+  },
+  "tab_bar": {
+    "show": false
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false
+  },
+  "preferred_line_length": 110,
+  "soft_wrap": "preferred_line_length",
+  "use_autoclose": true,
+  "git": {
+    "inline_blame": {
+      "enabled": false,
+      "delay_ms": 500
+    }
+  },
+  "terminal": {
+    "alternate_scroll": "off",
+    "blinking": "terminal_controlled",
+    "copy_on_select": true,
+    "font_family": "JetBrains Mono Nerd Font",
+    "line_height": "standard",
+    "toolbar": {
+      "title": true
+    },
+    "working_directory": "current_project_directory"
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-3-5-sonnet-20240620"
+    },
+    "version": "2",
+    "provider": null
+  },
+  "formatter": {
+    "language_server": {
+      "name": "biome"
+    }
+  }
+}
