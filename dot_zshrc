@@ -24,7 +24,7 @@ SAVEHIST=1000
 ZSH_COMPDUMP="${HOME}/.cache/zsh/zcompdump-${HOST}-${ZSH_VERSION}"
 
 # Plugins
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-completions)
 
 
 # Follow the PATH
@@ -35,6 +35,10 @@ fi
 # Loading some stuff
 if [ -f ~/.config/zsh/aliases.zsh ]; then
     . ~/.config/zsh/aliases.zsh
+fi
+
+if [ -f ~/.config/zsh/completions ]; then
+    . ~/.config/zsh/completions
 fi
 
 if [ -f ~/.config/homebrew/homebrew ]; then
