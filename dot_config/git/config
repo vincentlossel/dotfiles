@@ -69,6 +69,7 @@
     # Commit
     ca = !git add -A && git commit -av
     amend = commit --amend --resue-message=HEAD
+    yolo = !git add -A && commit -m "Update project"
 
     # Contributors
     contributors = shortlog --summary --numbered

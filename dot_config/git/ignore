@@ -15,9 +15,13 @@ Thumbs.db
 # IDEs
 .vscode/
 .idea/
+.fleet/
+.zed/
 
 # Secrets
 .env
+.env.*
+*.env
 env
 *.p8
 *.pem
@@ -29,3 +33,4 @@ node_modules/
 .uuid
 .extra
 .gnupg
+
