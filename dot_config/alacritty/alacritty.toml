@@ -1,0 +1,13 @@
+[window]
+padding = { x = 4, y = 32}
+dynamic_padding = true
+decorations = "Transparent"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 16
+
+[colors.primary]
+foreground = "#cdd6f4"
+background = "#11111a"
+
