@@ -1,6 +1,7 @@
 # Dotfiles
 
-This repository contains my dotfiles. It is managed by [chezmoi](https://www.chezmoi.io/).
+This repository contains some config files for programs that I actively use.
+It is managed by [chezmoi](https://www.chezmoi.io/).
 
 
 ## Requirements
