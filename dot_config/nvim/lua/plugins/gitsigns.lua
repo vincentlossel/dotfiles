@@ -22,6 +22,10 @@ return {
 						text = "~",
 					},
 				},
+				signs_staged_enable = true,
+				signcolumn = true,
+				numhl = true,
+				linehl = false,
 			}
 
 			-- Keymaps

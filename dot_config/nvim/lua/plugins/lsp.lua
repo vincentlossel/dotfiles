@@ -61,6 +61,17 @@ return {
 							diagnostics = {
 								globals = { "vim" },
 							},
+							format = {
+								enable = false,
+							},
+							completion = {
+								autoRequire = true,
+							},
+							hint = {
+								enable = true,
+								arrayIndex = "Enable",
+								setType = true,
+							},
 							telemetry = { enabled = false },
 						},
 					},

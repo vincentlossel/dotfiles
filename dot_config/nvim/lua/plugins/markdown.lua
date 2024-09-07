@@ -56,4 +56,22 @@ return {
 			}
 		end,
 	},
+	-- Markdown.nvim
+	{
+		"tadmccorkle/markdown.nvim",
+		ft = "markdown",
+		config = function()
+			local markdown = require "markdown"
+			markdown.setup {
+				link = {
+					paste = {
+						enable = true,
+					},
+				},
+				toc = {
+					markers = { "-" },
+				},
+			}
+		end,
+	},
 }
