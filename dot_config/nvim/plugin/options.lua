@@ -39,6 +39,7 @@ vim.opt.expandtab = true
 vim.opt.undofile = true
 
 -- Case-insensitive searching
+vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 

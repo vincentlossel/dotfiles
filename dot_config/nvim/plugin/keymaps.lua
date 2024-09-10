@@ -1,10 +1,9 @@
 -- [[ Basic Keymaps ]]
 
--- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
+-- Clear search highlight on pressing <Esc>
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>")
 
--- Basics
+-- Center motions
 vim.keymap.set("n", "j", "jzz")
 vim.keymap.set("n", "k", "kzz")
 
@@ -22,8 +21,9 @@ vim.keymap.set("n", "QQ", "<Cmd>q!<CR>", { desc = "Close current buffer" })
 vim.keymap.set("n", "WW", "<Cmd>w!<CR>", { desc = "Save current buffer" })
 
 -- Split window
-vim.keymap.set("n", "sv", "<Cmd>vsplit<CR>", { desc = "Vertical split" })
-vim.keymap.set("n", "sh", "<Cmd>split<CR>", { desc = "Horizontal split" })
+vim.keymap.set("n", "sv", "<Cmd>vsplit<CR>", { desc = "[V]ertical [S]plit" })
+vim.keymap.set("n", "sh", "<Cmd>split<CR>", { desc = "[H]orizontal [S]plit" })
 
--- TODO: Inlay hints
--- vim.keymap.set("n", "", "", { desc = "Toggle inlay hints" })
+-- Virtual Text
+vim.keymap.set("n", "<Leader>ie", "<Cmd>lua vim.lsp.inlay_hint.enable(true)<CR>", { desc = "[E]nable [I]nlay hints" })
+vim.keymap.set("n", "<Leader>id", "<Cmd>lua vim.lsp.inlay_hint.enable(false)<CR>", { desc = "[D]isable [I]nlay hints" })
