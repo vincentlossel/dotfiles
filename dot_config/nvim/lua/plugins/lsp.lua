@@ -27,7 +27,7 @@ return {
 			}
 
 			-- Inlay hints
-			local tsserver_inlay_hints = {
+			local ts_ls_inlay_hints = {
 				includeInlayEnumMemberValueHints = true,
 				includeInlayFunctionLikeReturnTypeHints = true,
 				includeInlayFunctionParameterTypeHints = true,
@@ -44,13 +44,13 @@ return {
 				clangd = true,
 				gopls = true,
 				pyright = true,
-				tsserver = {
+				ts_ls = {
 					settings = {
 						typescript = {
-							inlayHints = tsserver_inlay_hints,
+							inlayHints = ts_ls_inlay_hints,
 						},
 						javascript = {
-							inlayHints = tsserver_inlay_hints,
+							inlayHints = ts_ls_inlay_hints,
 						},
 					},
 				},
