@@ -1,1 +1,16 @@
+set showmode
 set scrolloff=24
+set incsearch
+set hlsearch
+set nu
+set clipboard+=unnamed
+set clipboard+=ideaput
+
+let mapleader=" "
+
+nnoremap <Leader>sf <Action>(GotoFile)
+nnoremap <C-c> <Esc>
+
+nnoremap <C-t> <Action>(ActiveTerminalToolWindow)
+nnoremap <Leader>t <Action>(Terminal.OpenInTerminal)
+
