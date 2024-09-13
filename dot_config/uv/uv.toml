@@ -1,0 +1,2 @@
+resolution = "lowest-direct"
+upgrade-package = ["ruff"]
