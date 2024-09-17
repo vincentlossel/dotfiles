@@ -1,0 +1,18 @@
+// Following @drduh recommended settings
+// https://github.com/drduh/config/blob/master/gpg-agent.conf
+
+enable-ssh-support
+ttyname $GPG_TTY
+
+default-cache-ttl 60
+max-cache-ttl 120
+
+{{- if (and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64")) }}
+pinentry-program /opt/homebrew/bin/pinentry-mac
+{{- end }}
+
+// TODO: Linux
+
+
+
+
