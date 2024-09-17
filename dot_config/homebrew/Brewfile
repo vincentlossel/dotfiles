@@ -5,6 +5,12 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 
+tap "1password/tap"
+tap "getsentry/tools"
+tap "shopify/shopify"
+tap "stripe/stripe-cli"
+tap "nikitabobko/tap"
+
 # Brews / Formulae
 brew "neovim"
 brew "tmux"
@@ -12,6 +18,7 @@ brew "tmux"
 brew "htop"
 brew "bat"
 brew "exa"
+brew "fzf"
 brew "tree"
 brew "watch"
 brew "lazygit"
@@ -19,9 +26,12 @@ brew "gnupg"
 brew "exiftool"
 brew "virtualenv"
 brew "ripgrep"
+brew "ruff"
 brew "uv"
 brew "ffmpeg"
 
+brew "elixir"
+brew "erlang"
 brew "go"
 brew "lua"
 brew "node"
@@ -43,6 +53,10 @@ brew "gcc"
 brew "cmake"
 
 brew "mas"
+
+brew "shopify-cli"
+brew "stripe"
+brew "sentry-wizard"
 
 # Casks
 cask "1password"
@@ -84,7 +98,10 @@ cask "zoom"
 
 # Fonts
 cask "font-jetbrains-mono-nerd-font"
+cask "font-zed-mono-nerd-font"
 cask "font-meslo-lg-nerd-font"
+cask "font-iosevka-nerd-font"
+cask "font-sauce-code-pro-nerd-font"
 
 # Mac App Store (MAS)
 mas "Xcode", id: 497799835
