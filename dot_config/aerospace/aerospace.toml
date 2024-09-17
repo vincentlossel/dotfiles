@@ -1,7 +1,7 @@
 after-login-command = []
 after-startup-command = []
 
-start-at-login = false
+start-at-login = true
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -62,6 +62,8 @@ alt-shift-9 = "move-node-to-workspace 9"
 
 alt-tab = "workspace-back-and-forth"
 alt-shift-tab = "move-workspace-to-monitor --wrap-around next"
+alt-left = "workspace prev"
+alt-right = "workspace next"
 
 alt-shift-semicolon = "mode service"
 
@@ -77,20 +79,12 @@ alt-shift-k = ["join-with up", "mode main"]
 alt-shift-l = ["join-with right", "mode main"]
 
 ###################################
-## Floating Windows
+## Hooks
 ###################################
 
-[[on-window-detected]]
-if.app-id = "com.apple.systempreferences"
-run = ["layout floating"]
+# TODO: Automatically send some applications to some workspaces with `move-node-to-workspace X`
 
-[[on-window-detected]]
-if.app-id = "com.apple.ActivityMonitor"
-run = ["layout floating"]
-
-[[on-window-detected]]
-if.app-id = "com.apple.mail"
-run = ["layout floating"]
+# Main Apps
 
 [[on-window-detected]]
 if.app-id = "com.apple.finder"
@@ -98,10 +92,6 @@ run = ["layout floating"]
 
 [[on-window-detected]]
 if.app-id = "com.1password.1password"
-run = ["layout floating"]
-
-[[on-window-detected]]
-if.app-id = "com.spotify.client"
 run = ["layout floating"]
 
 [[on-window-detected]]
@@ -119,3 +109,37 @@ run = ["layout floating"]
 [[on-window-detected]]
 if.app-id = "com.runningwithcrayons.Alfred-Preferences"
 run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.spotify.client"
+run = ["layout floating"]
+
+# Settings Apps
+
+[[on-window-detected]]
+if.app-id = "com.apple.systempreferences"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.ActivityMonitor"
+run = ["layout floating"]
+
+
+# Messaging Apps
+
+[[on-window-detected]]
+if.app-id = "com.apple.mail"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "com.apple.MobileSMS"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "org.whispersystems.signal-desktop"
+run = ["layout floating"]
+
+[[on-window-detected]]
+if.app-id = "net.whatsapp.WhatsApp"
+run = ["layout floating"]
+
