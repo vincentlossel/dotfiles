@@ -2,6 +2,7 @@ return {
 	-- LSP Configuration & Plugins
 	{
 		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			-- Extensions manager
 			{ "williamboman/mason.nvim" },
@@ -13,10 +14,19 @@ return {
 			{ "mrcjkb/rustaceanvim", lazy = false },
 		},
 		config = function()
-			local lspconfig = require "lspconfig"
+			local servers = require "plugins.lsp.servers"
+			local formatters = require "plugins.lsp.formatters"
+			local all_servers = vim.tbl_deep_extend("force", {}, servers, formatters)
+
+			-- Mason
 			local mason = require "mason"
 			local mason_lspconfig = require "mason-lspconfig"
 			local mason_tool_installer = require "mason-tool-installer"
+
+			mason.setup()
+			mason_tool_installer.setup {
+				ensure_installed = vim.tbl_keys(all_servers),
+			}
 
 			-- Capabilities
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -26,109 +36,30 @@ return {
 				lineFoldingOnly = true,
 			}
 
-			-- Inlay hints
-			local ts_ls_inlay_hints = {
-				includeInlayEnumMemberValueHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayParameterNameHints = "all",
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayVariableTypeHints = true,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+			-- LSP
+			local lspconfig = require "lspconfig"
+
+			mason_lspconfig.setup_handlers {
+				function(server_name)
+					lspconfig[server_name].setup {
+						capabilities = capabilities,
+						settings = all_servers[server_name].settings,
+						filetypes = (all_servers[server_name] or {}).filetypes,
+					}
+				end,
 			}
 
-			-- Servers
-			local servers = {
-				bashls = true,
-				clangd = true,
-				gopls = true,
-				pyright = true,
-				ts_ls = {
-					settings = {
-						typescript = {
-							inlayHints = ts_ls_inlay_hints,
-						},
-						javascript = {
-							inlayHints = ts_ls_inlay_hints,
-						},
-					},
-				},
-				biome = true,
-				lua_ls = {
-					settings = {
-						Lua = {
-							diagnostics = {
-								globals = { "vim" },
-							},
-							format = {
-								enable = false,
-							},
-							completion = {
-								autoRequire = true,
-							},
-							hint = {
-								enable = true,
-								arrayIndex = "Enable",
-								setType = true,
-							},
-							telemetry = { enabled = false },
-						},
-					},
-				},
-				jsonls = true,
-				yamlls = true,
-				cssls = true,
-				astro = true,
-			}
-
-			-- Formatters
-			local formatters = {
-				prettierd = true,
-				stylelua = true,
-			}
-
-			-- Listing servers
-			local ensure_installed = vim.tbl_keys(servers or {})
-			vim.list_extend(ensure_installed, {
-				"stylua",
-				"codespell",
-				"tailwindcss-language-server",
-			})
-
-			local servers_to_install = vim.tbl_filter(function(key)
-				local t = servers[key]
-				if type(t) == "table" then
-					return not t.manual_install
-				else
-					return t
-				end
-			end, vim.tbl_keys(servers))
-			vim.list_extend(ensure_installed, servers_to_install)
-
-			-- Mason
-			mason.setup()
-			mason_tool_installer.setup {
-				ensure_installed = ensure_installed,
-			}
-
-			-- Setup servers and override explicitly set values
-			mason_lspconfig.setup {
-				handlers = {
-					function(server_name)
-						local server
-						if type(servers[server_name]) == "boolean" then
-							server = {}
-						else
-							server = servers[server_name] or {}
-						end
-
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						lspconfig[server_name].setup(server)
-					end,
-
-					-- Disable rust_analyzer to use `rustacean` instead
-					["rust_analyzer"] = function() end,
+			-- Diagnostics
+			vim.diagnostic.config {
+				title = false,
+				underline = true,
+				virtual_text = true,
+				signs = true,
+				update_in_insert = false,
+				severity_sort = true,
+				float = {
+					source = "if_many",
+					style = "minimal",
 				},
 			}
 

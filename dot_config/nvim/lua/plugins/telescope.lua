@@ -21,8 +21,6 @@ return {
 			},
 			-- Telescope Undo
 			{ "debugloop/telescope-undo.nvim" },
-			-- Telescope Frecency
-			{ "nvim-telescope/telescope-frecency.nvim" },
 		},
 		config = function()
 			local telescope = require "telescope"

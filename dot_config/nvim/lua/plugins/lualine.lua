@@ -15,6 +15,31 @@ return {
 				return branch
 			end
 
+			local function harpoon_section()
+				local harpoon = require "harpoon"
+				local current_file = vim.api.nvim_buf_get_name(0):gsub(vim.fn.getcwd() .. "/", "")
+				local marks = harpoon:list().items
+				local total_marks = #marks
+
+				if total_marks == 0 then
+					return ""
+				end
+
+				local mark_idx = nil
+				for idx, item in pairs(marks) do
+					if item.value == current_file then
+						mark_idx = idx
+					end
+				end
+
+				local current_mark = "-"
+				if mark_idx ~= nil then
+					current_mark = tostring(mark_idx)
+				end
+
+				return string.format("󱡅 %s/%d", current_mark, total_marks)
+			end
+
 			local lualine = require "lualine"
 			lualine.setup {
 				options = {
@@ -32,6 +57,7 @@ return {
 					lualine_a = { "mode" },
 					lualine_b = {
 						{ "branch", fmt = truncate_branch_name },
+						harpoon_section,
 						"diff",
 						"diagnostics",
 					},

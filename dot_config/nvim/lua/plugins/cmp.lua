@@ -2,7 +2,7 @@ return {
 	-- Autocompletion
 	{
 		"hrsh7th/nvim-cmp",
-		event = { "BufReadPost", "BufNewFile" },
+		event = "InsertEnter",
 		dependencies = {
 			-- Completions
 			{ "hrsh7th/cmp-nvim-lsp" },
@@ -51,9 +51,12 @@ return {
 						show_labelDetails = true,
 						menu = {
 							nvim_lsp = "[LSP]",
+							nvim_lua = "[Lua]",
 							buffer = "[Buffer]",
-							path = "[PATH]",
+							path = "[Path]",
 							luasnip = "[LuaSnip]",
+							treesitter = "[Treesitter]",
+							latex_symbols = "[LaTeX]",
 						},
 					},
 				},
@@ -72,8 +75,22 @@ return {
 
 					-- Traditional keymaps, just in case
 					["<CR>"] = cmp.mapping.confirm { select = true },
-					["<Tab>"] = cmp.mapping.select_next_item(),
-					["<S-Tab>"] = cmp.mapping.select_prev_item(),
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						elseif luasnip.expand_or_locally_jumpable() then
+							luasnip.expand_or_jump()
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					["<S-Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_prev_item()
+						elseif luasnip.locally_jumpable(-1) then
+							luasnip.jump(-1)
+						end
+					end, { "i", "s" }),
 
 					-- Manually trigger a completion
 					["<C-Space>"] = cmp.mapping.complete {},
@@ -95,6 +112,8 @@ return {
 					{ name = "buffer", max_item_count = 5, group_index = 2 },
 					{ name = "path", max_item_count = 3, groupd_index = 3 },
 					{ name = "luasnip", max_item_count = 3, group_index = 5 },
+					{ name = "treesitter" },
+					{ name = "nvim_lua" },
 					{ name = "nvim-lsp-signature-help" },
 				},
 				experimental = {
