@@ -1,17 +1,29 @@
+import = [
+	"~/.config/alacritty/themes/catppuccin-mocha.toml",
+]
+
+shell = "/bin/zsh"
+live_config_reload = true
+
 [env]
-TERM = "screen-256color"
+TERM = "xterm-256color"
 WINIT_X11_SCALE_FACTOR = "1.0"
 
 [window]
-padding = { x = 4, y = 32}
+padding = { x = 4, y = 10}
 dynamic_padding = true
-decorations = "Transparent"
+decorations = "Buttonless"
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
-size = 16
+size = 15
 
-[colors.primary]
-foreground = "#cdd6f4"
-background = "#11111a"
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = { shape = "Block", blinking = "Off" }
+
+[terminal]
+osc52 = "CopyPaste"
 
