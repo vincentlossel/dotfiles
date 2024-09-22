@@ -14,10 +14,11 @@ tap "nikitabobko/tap"
 # Brews / Formulae
 brew "neovim"
 brew "tmux"
+brew "starship"
 
 brew "htop"
 brew "bat"
-brew "exa"
+brew "eza"
 brew "fzf"
 brew "tree"
 brew "watch"
@@ -98,10 +99,10 @@ cask "zoom"
 
 # Fonts
 cask "font-jetbrains-mono-nerd-font"
-cask "font-zed-mono-nerd-font"
 cask "font-meslo-lg-nerd-font"
 cask "font-iosevka-nerd-font"
 cask "font-sauce-code-pro-nerd-font"
+cask "font-zed-mono-nerd-font"
 
 # Mac App Store (MAS)
 mas "Xcode", id: 497799835
