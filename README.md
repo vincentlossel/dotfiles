@@ -20,7 +20,7 @@ Everything should work out of the box on macOS.
 ### Other
 - Main Fonts: JetBrains Mono (Nerd Font), Zed Mono (Nerd Font)
 - Themes: Catppuccin Mocha (with some custom modifications)
-=
+
 ## How to use
 You can pick any file for a specific tool and use it directly.
 If you want to use the whole configuration, you should learn more about [chezmoi](https://www.chezmoi.io).
