@@ -1,0 +1,150 @@
+[
+    // Normal & Visual Modes
+    {
+        "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+        "bindings": {
+            // Toggle Inlay Hints
+            "space t i": "editor::ToggleInlayHints",
+            // Toggle Soft Wrap
+            "space t w": "editor::ToggleSoftWrap",
+            // Comments
+            "g c": "editor::ToggleComments",
+            // Buffers
+            "space s f": "file_finder::Toggle",
+            "space s p": "projects::OpenRecent",
+            // Markdown
+            "space m p ": "markdown::OpenPreview",
+            "space m P": "markdown::OpenPreviewToTheSide"
+        }
+    },
+    // Visual Mode
+    {
+        "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+        "bindings": {}
+    },
+    // Normal Mode
+    {
+        "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+        "bindings": {
+            // Pane Navigation
+            "ctrl-h": [
+                "workspace::ActivatePaneInDirection",
+                "Left"
+            ],
+            "ctrl-l": [
+                "workspace::ActivatePaneInDirection",
+                "Right"
+            ],
+            "ctrl-k": [
+                "workspace::ActivatePaneInDirection",
+                "Up"
+            ],
+            "ctrl-j": [
+                "workspace::ActivatePaneInDirection",
+                "Down"
+            ],
+            // Buffers
+            "shift-h": "pane::ActivatePrevItem",
+            "shift-l": "pane::ActivateNextItem",
+            // LSP
+            "space c a": "editor::ToggleCodeActions",
+            "space c r": "editor::Rename",
+            "g d": "editor::GoToDefinition",
+            "g D": "editor::GoToDefinitionSplit",
+            "g i": "editor::GoToImplementation",
+            "g I": "editor::GoToImplementationSplit",
+            "g t": "editor::GoToTypeDefinition",
+            "g r": "editor::FindAllReferences",
+            "g T": "editor::GoToTypeDefinitionSplit",
+            "g ]": "editor::GoToDiagnostic",
+            "g [": "editor::GoToPrevDiagnostic",
+            // Symbols
+            "space s s": "outline::Toggle",
+            "space s S": "project_symbols::Toggle"
+        }
+    },
+    // Empty Pane
+    {
+        "context": "EmptyPane || SharedScreen",
+        "bindings": {
+            // Buffers
+            "space s f": "file_finder::Toggle",
+            "space s p": "projects::OpenRecent"
+        }
+    },
+    // Terminal
+    {
+        "context": "Terminal",
+        "bindings": {
+            "ctrl-h": [
+                "workspace::ActivatePaneInDirection",
+                "Left"
+            ],
+            "ctrl-l": [
+                "workspace::ActivatePaneInDirection",
+                "Right"
+            ],
+            "ctrl-k": [
+                "workspace::ActivatePaneInDirection",
+                "Up"
+            ],
+            "ctrl-j": [
+                "workspace::ActivatePaneInDirection",
+                "Down"
+            ]
+        }
+    },
+    // Project Panel
+    {
+        "context": "ProjectPanel && not_editing",
+        "bindings": {
+            "cmd-h": [
+                "workspace::ActivatePaneInDirection",
+                "Left"
+            ],
+            "ctrl-l": [
+                "workspace::ActivatePaneInDirection",
+                "Right"
+            ],
+            "ctrl-k": [
+                "workspace::ActivatePaneInDirection",
+                "Up"
+            ],
+            "ctrl-j": [
+                "workspace::ActivatePaneInDirection",
+                "Down"
+            ]
+        }
+    },
+    // Panel Navigation
+    {
+        "context": "Dock",
+        "bindings": {
+            "ctrl-h": [
+                "workspace::ActivatePaneInDirection",
+                "Left"
+            ],
+            "ctrl-l": [
+                "workspace::ActivatePaneInDirection",
+                "Right"
+            ],
+            "ctrl-k": [
+                "workspace::ActivatePaneInDirection",
+                "Up"
+            ],
+            "ctrl-j": [
+                "workspace::ActivatePaneInDirection",
+                "Down"
+            ]
+        }
+    },
+    // Workspace
+    {
+        "context": "Workspace",
+        "bindings": {
+            "cmd-b": "workspace::ToggleLeftDock",
+            "cmd-r": "workspace::ToggleRightDock",
+            "cmd-t": "terminal_panel::ToggleFocus"
+        }
+    }
+]
